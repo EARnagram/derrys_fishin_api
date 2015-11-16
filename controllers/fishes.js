@@ -20,7 +20,7 @@ var fishShow = function(req, res, next){
 //||||||||||||||||||||||||||--
 // GET FISHES
 //||||||||||||||||||||||||||--
-var fishesAll = function(req, res) {
+var fishIndex = function(req, res) {
   Fish.find({}, function(err, fishes) {
     if (err) {
       res.send(err);
@@ -40,12 +40,15 @@ var fishCreate = function(req, res) {
   fish.name      = req.body.name;
   fish.category  = req.body.category;
 
-  fish.save(function(err) {
+  fish.save(function(err, savedFish) {
     if (err) {
       res.send(err)
     }
-    // return a message
-    res.json({ message: 'Fish remembered!' });
+
+    // log a message
+    console.log("That's the fish!")
+    // return the fish
+    res.json(savedFish);
   });
 };
 
@@ -66,18 +69,20 @@ var fishUpdate = function(req, res) {
     if (req.body.category) fish.category = req.body.category;
 
     // save the fish
-    fish.save(function(err) {
+    fish.save(function(err, updatedFish) {
       if (err) {
         res.send(err);
       }
-      // return a message
-      res.json({ message: "Oh, that's the fish!" });
+      // log a message
+      console.log("Oh, that's the fish!");
+      // return the fish
+      res.json(updatedFish);
     });
   });
 }
 
 //||||||||||||||||||||||||||--
-// DESTROY FISH
+// DELETE FISH
 //||||||||||||||||||||||||||--
 var fishDelete = function(req, res) {
   var id = req.params.id;
@@ -93,9 +98,8 @@ var fishDelete = function(req, res) {
 // Export the function/s as JSON
 module.exports = {
   fishShow:   fishShow,
-  fishesAll:  fishesAll,
+  fishIndex:  fishIndex,
   fishCreate: fishCreate,
   fishUpdate: fishUpdate,
   fishDelete: fishDelete
 }
-

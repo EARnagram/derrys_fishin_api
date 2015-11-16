@@ -8,7 +8,7 @@ var FishesCtrl = require('../controllers/fishes')
 // FISHES CRUD SERVICES
 //||||||||||||||||||||||||||--
 router.get('/:id',    FishesCtrl.fishShow);
-router.get('/',       FishesCtrl.fishesAll);
+router.get('/',       FishesCtrl.fishIndex);
 router.post('/',      FishesCtrl.fishCreate);
 router.put('/:id',    FishesCtrl.fishUpdate);
 router.delete('/:id', FishesCtrl.fishDelete);
