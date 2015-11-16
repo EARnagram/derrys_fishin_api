@@ -79,7 +79,7 @@ var fishUpdate = function(req, res) {
 //||||||||||||||||||||||||||--
 // DESTROY FISH
 //||||||||||||||||||||||||||--
-var fishDestroy = function(req, res) {
+var fishDelete = function(req, res) {
   var id = req.params.id;
 
   Fish.remove({"_id" : id}, function(err) {
@@ -92,10 +92,10 @@ var fishDestroy = function(req, res) {
 
 // Export the function/s as JSON
 module.exports = {
-  fishShow:    fishShow,
-  fishesAll:   fishesAll,
-  fishCreate:  fishCreate,
-  fishUpdate:  fishUpdate,
-  fishDestroy: fishDestroy
+  fishShow:   fishShow,
+  fishesAll:  fishesAll,
+  fishCreate: fishCreate,
+  fishUpdate: fishUpdate,
+  fishDelete: fishDelete
 }
 

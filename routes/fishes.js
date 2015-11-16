@@ -1,16 +1,16 @@
 var express = require('express');
 var router = express.Router();
+
+// Require fishes controller
 var FishesCtrl = require('../controllers/fishes')
 
 //||||||||||||||||||||||||||--
-// ROUTES FOR CRUD SERVICES
+// FISHES CRUD SERVICES
 //||||||||||||||||||||||||||--
-
-// USERS CRUD
 router.get('/:id',    FishesCtrl.fishShow);
-router.get('/',    FishesCtrl.fishesAll);
-router.post('/',   FishesCtrl.fishCreate);
+router.get('/',       FishesCtrl.fishesAll);
+router.post('/',      FishesCtrl.fishCreate);
 router.put('/:id',    FishesCtrl.fishUpdate);
-router.delete('/:id', FishesCtrl.fishDestroy);
+router.delete('/:id', FishesCtrl.fishDelete);
 
 module.exports = router;
