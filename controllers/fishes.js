@@ -46,7 +46,7 @@ var fishCreate = function(req, res) {
     }
 
     // log a message
-    console.log("That's the fish!")
+    console.log("What a fish!")
     // return the fish
     res.json(savedFish);
   });
