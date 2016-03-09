@@ -3,8 +3,8 @@ var mongoose = require('mongoose');
 
 // Create a schema of your model
 var fishSchema = new mongoose.Schema({
-  name:    String,
-  category:   String
+  name:     String,
+  category: String
 });
 
 // Create the model using your schema.
