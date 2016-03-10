@@ -26,6 +26,7 @@ var fishIndex = function(req, res) {
       res.send(err);
     }
 
+    console.log("Show me the fishes!")
     // return the fishes
     res.json(fishes);
   });
@@ -91,6 +92,7 @@ var fishDelete = function(req, res) {
     if (err) {
       res.send(err);
     }
+    console.log("How could you get rid of a fish like that?")
     res.json({ message: 'Forget that Fish!' });
   });
 }
